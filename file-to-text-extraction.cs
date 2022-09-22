@@ -47,43 +47,7 @@ namespace cogproject
           
 
 
-            /* Uri sourceUri = new Uri("https://savdemosa.blob.core.windows.net/source?sp=rcwdli&st=2022-08-30T07:35:25Z&se=2022-10-07T15:35:25Z&spr=https&sv=2021-06-08&sr=c&sig=wAvQBWrzO32X5ymibCze2pZQhQY8LSBVCa%2F8IijVJqg%3D");
-             Uri targetUri = new Uri("https://savdemosa.blob.core.windows.net/target?sp=racwdli&st=2022-08-27T11:40:22Z&se=2022-10-08T15:40:22Z&spr=https&sv=2021-06-08&sr=c&sig=or2pm5pOmxDn4GoDnC%2Foff%2FEYGLsBkxBKTb9CTytleQ%3D");
-             DocumentTranslationClient dcclient = new DocumentTranslationClient(new Uri(endpoint), new AzureKeyCredential(subscriptionKey));
-
-             DocumentTranslationInput input = new DocumentTranslationInput(sourceUri, targetUri, "hi");
-             DocumentTranslationOperation operation = await dcclient.StartTranslationAsync(input);
-
-             await operation.WaitForCompletionAsync();
-
-             Console.WriteLine("  Status: {operation.Status}");
-             Console.WriteLine("  Created on: {operation.CreatedOn}");
-             Console.WriteLine("  Last modified: {operation.LastModified}");
-             Console.WriteLine("  Total documents: {operation.DocumentsTotal}");
-             Console.WriteLine("    Succeeded: {operation.DocumentsSucceeded}");
-             Console.WriteLine("    Failed: {operation.DocumentsFailed}");
-             Console.WriteLine("    In Progress: {operation.DocumentsInProgress}");
-             Console.WriteLine("    Not started: {operation.DocumentsNotStarted}");
-
-             await foreach (DocumentStatusResult doc in operation.Value)
-             {
-                 Console.WriteLine("Document with Id: {document.DocumentId}");
-                 Console.WriteLine("  Status:{document.Status}");
-                 if (doc.Status == DocumentTranslationStatus.Succeeded)
-                 {
-                     Console.WriteLine("  Translated Document Uri: {document.TranslatedDocumentUri}");
-                     Console.WriteLine("  Translated to language: {document.TranslatedTo}.");
-                     Console.WriteLine("  Document source Uri: {document.SourceDocumentUri}");
-                 }
-                 else
-                 {
-                     Console.WriteLine("  Error Code: {document.Error.ErrorCode}");
-                     Console.WriteLine("  Message: {document.Error.Message}");
-                 }
-             }
-
-
-             */
+            
             ComputerVisionClient client = Authenticate(endpoint, subscriptionKey);
 
 
@@ -186,50 +150,7 @@ namespace cogproject
 
         }
 
-       /* private static async Task translatedocAsync()
-        {
-            
-        string subscriptionKey = "37b737ce05944cc09cb33e4ba41046cf";
-            string endpoint = "https://westus2.api.cognitive.microsoft.com/";
-
-            //var client = new DocumentTranslationClient(new Uri(endpoint), new AzureKeyCredential(subscriptionKey));
-
-            Uri sourceUri = new Uri("https://savdemosa.blob.core.windows.net/source?sp=rcwdli&st=2022-08-30T07:35:25Z&se=2022-10-07T15:35:25Z&spr=https&sv=2021-06-08&sr=c&sig=wAvQBWrzO32X5ymibCze2pZQhQY8LSBVCa%2F8IijVJqg%3D");
-            Uri targetUri = new Uri("https://savdemosa.blob.core.windows.net/target?sp=racwdli&st=2022-08-27T11:40:22Z&se=2022-10-08T15:40:22Z&spr=https&sv=2021-06-08&sr=c&sig=or2pm5pOmxDn4GoDnC%2Foff%2FEYGLsBkxBKTb9CTytleQ%3D");
-            DocumentTranslationClient dcclient = new DocumentTranslationClient(new Uri(endpoint), new AzureKeyCredential(subscriptionKey));
-
-            DocumentTranslationInput input = new DocumentTranslationInput(sourceUri, targetUri, "fil");
-            DocumentTranslationOperation operation = await dcclient.StartTranslationAsync(input);
-
-            await operation.WaitForCompletionAsync();
-
-            Console.WriteLine("  Status: {operation.Status}");
-            Console.WriteLine("  Created on: {operation.CreatedOn}");
-            Console.WriteLine("  Last modified: {operation.LastModified}");
-            Console.WriteLine("  Total documents: {operation.DocumentsTotal}");
-            Console.WriteLine("    Succeeded: {operation.DocumentsSucceeded}");
-            Console.WriteLine("    Failed: {operation.DocumentsFailed}");
-            Console.WriteLine("    In Progress: {operation.DocumentsInProgress}");
-            Console.WriteLine("    Not started: {operation.DocumentsNotStarted}");
-
-            await foreach (DocumentStatusResult doc in operation.Value)
-            {
-                Console.WriteLine("Document with Id: {document.DocumentId}");
-                Console.WriteLine("  Status:{document.Status}");
-                if (doc.Status == DocumentTranslationStatus.Succeeded)
-                {
-                    Console.WriteLine("  Translated Document Uri: {document.TranslatedDocumentUri}");
-                    Console.WriteLine("  Translated to language: {document.TranslatedTo}.");
-                    Console.WriteLine("  Document source Uri: {document.SourceDocumentUri}");
-                }
-                else
-                {
-                    Console.WriteLine("  Error Code: {document.Error.ErrorCode}");
-                    Console.WriteLine("  Message: {document.Error.Message}");
-                }
-            }
-        }
-       */
+     
             private static void uploadAudioFileAsync(string filename)
             {
                 Console.WriteLine("uploadAudioFileAsync--------------------------------");
